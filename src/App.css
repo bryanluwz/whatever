@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --color-background: #f3e6e2;
+  --color-panel: #fff8f5;
+  --color-ink: #5b4040;
+  --color-soft: #9a7b7b;
+  --color-rose: #ef7f9a;
+  --color-line: #f0d9d9;
+  --color-mint: #58b98a;
+  --shadow-soft: 0 4px 14px #78465029;
+  --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --font-klee: 'Klee One';
+}
+
+#root {
+  width: 100vw;
+}
