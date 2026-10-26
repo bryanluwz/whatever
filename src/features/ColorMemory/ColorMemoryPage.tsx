@@ -109,6 +109,7 @@ export const ColorMemoryPage = () => {
   }, [
     currentStage,
     gameState.chosenColor,
+    gameState.result,
     gameState.targetColor,
     handleChosenColorChange,
     handleChosenColorSubmit,
