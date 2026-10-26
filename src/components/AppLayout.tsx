@@ -4,15 +4,13 @@ import clsx from 'clsx';
 export const AppLayout = () => {
   const tabs = [
     { label: 'Color Memory', to: '/color-memory' },
-    { label: 'Color Memory', to: '/color-memory2' },
-    { label: 'Color Memory', to: '/color-memory3' },
-    { label: 'Color Memory', to: '/color-memory4' },
-    { label: 'Color Memory', to: '/color-memory5' },
-    { label: 'Color Memory', to: '/color-memory6' },
+    { label: 'Sound Memory', to: '/sound-memory' },
+    { label: 'Tic Tac Noe', to: '/tic-tac-noe' },
+    { label: 'Fourier Transform', to: '/fourier-transform' },
   ];
 
   return (
-    <div className='flex h-screen bg-background font-klee text-ink text-md shadow-soft'>
+    <div className='flex h-screen bg-background font-klee text-ink text-base shadow-soft'>
       <aside className='w-64 flex flex-col shrink-0 bg-panel p-6 gap-4'>
         <div className='flex flex-col'>
           <span className='font-[600] text-3xl'>Whatever</span>
@@ -38,7 +36,7 @@ export const AppLayout = () => {
       </aside>
 
       <main className='flex-1 overflow-auto'>
-        <div className='p-8'>
+        <div className='p-8 h-dvh'>
           <Outlet />
         </div>
       </main>
