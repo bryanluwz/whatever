@@ -10,7 +10,7 @@ export const SimpleHelpPopup = ({ title, steps }: SimpleHelpPopupProps) => {
 
   return (
     <HelpPopup>
-      <div className='flex flex-col w-100'>
+      <div className='flex flex-col w-60 md:w-100'>
         <span className='text-rose text-xl'>{title}</span>
         <div>
           <span className='text-soft text-base'>How to play?</span>

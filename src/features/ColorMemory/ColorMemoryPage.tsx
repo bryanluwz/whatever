@@ -48,17 +48,17 @@ export const ColorMemoryPage = () => {
             ? gameState.chosenColor
             : gameState.targetColor;
     return (
-      <div className='flex items-center justify-center h-full w-full relative gap-4'>
+      <div className='flex md:flex-row flex-col-reverse items-center justify-center h-full w-full relative gap-4'>
         {currentStage === Stage.START && (
           <button
-            className='absolute transition-all text-3xl px-5 py-2 rounded-lg shadow-soft bg-white cursor-pointer hover:scale-105 z-1'
+            className='absolute transition-all text-2xl md:text-3xl px-5 py-2 rounded-lg shadow-soft bg-white cursor-pointer hover:scale-105 z-1'
             onClick={startGame}
           >
             Start
           </button>
         )}
         {currentStage === Stage.RESULT && (
-          <div className='flex flex-col gap-4 items-center justify-center bg-panel p-4 absolute z-1 rounded-lg text-3xl w-80 text-center'>
+          <div className='flex flex-col gap-4 items-center justify-center bg-panel p-4 absolute z-1 rounded-lg text-3xl w-60 md:w-80 text-center'>
             <span>{(gameState.result * 100).toFixed(2)}%</span>
             <span className='text-base text-rose'>
               {gameState.result <= 0.25
@@ -80,7 +80,7 @@ export const ColorMemoryPage = () => {
           </div>
         )}
         {currentStage === Stage.RECREATE && (
-          <div className='flex flex-col h-100 gap-2'>
+          <div className='flex flex-col h-80 w-80 md:h-100 gap-2'>
             <div className='flex-1'>
               <ColorPicker onColorChange={handleChosenColorChange} />
             </div>

@@ -23,7 +23,7 @@ export const ColorPicker = ({ onColorChange }: ColorPickerProps) => {
   return (
     <div className='flex gap-2 h-full bg-panel p-3 rounded-xl'>
       <div
-        className='relative flex-1 cursor-crosshair rounded-xl touch-none w-83'
+        className='relative flex-1 cursor-crosshair rounded-xl touch-none w-auto'
         style={{
           backgroundColor: `hsl(${hue} 100% 50%)`,
           backgroundImage: `linear-gradient(to top, black, transparent), linear-gradient(to right, white, transparent)`,
