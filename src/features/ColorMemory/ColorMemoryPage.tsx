@@ -6,7 +6,7 @@ import { getColorSimilarity, randomHexColor } from '../../utils/color';
 import { ColorRect } from './ColorRect';
 import { ColorPicker } from './ColorPicker';
 import { useSimpleMemoryGame } from '../../hooks/useRecreateMemoryGame';
-import { GameContent } from '../../components/SimpleMemoryGame/GameContent';
+import { GameContent } from '../../components/SimpleMemoryGame/SimpleMemoryGame';
 
 export const ColorMemoryPage = () => {
   const {
@@ -27,7 +27,7 @@ export const ColorMemoryPage = () => {
     handleSubmitResult(result);
   }, [gameState.chosenValue, gameState.targetValue, handleSubmitResult]);
 
-  const content2 = useMemo(
+  const content = useMemo(
     () => (
       <GameContent
         currentStage={currentStage}
@@ -114,7 +114,7 @@ export const ColorMemoryPage = () => {
           />
         }
       />
-      {content2}
+      {content}
     </div>
   );
 };

@@ -1,9 +1,8 @@
 import type { Stage } from '../hooks/useSimpleMemoryGame';
 
-export interface GameContentProps {
+export interface SimpleMemoryGameProps {
   currentStage: Stage;
   result: number;
-  // timeLeft: number;
   onStart: () => void;
   renderMemorise?: () => React.ReactNode;
   renderRecreate?: () => React.ReactNode;

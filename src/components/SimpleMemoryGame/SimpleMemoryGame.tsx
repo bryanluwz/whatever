@@ -1,4 +1,4 @@
-import type { GameContentProps } from '../../typings/components/SimpleMemoryGame';
+import type { SimpleMemoryGameProps } from '../../typings/components/SimpleMemoryGame';
 import { Stage } from '../../typings/hooks/useSimpleMemoryGame';
 
 export const GameContent = ({
@@ -9,7 +9,7 @@ export const GameContent = ({
   renderRecreate,
   renderResult,
   renderDisplay,
-}: GameContentProps) => {
+}: SimpleMemoryGameProps) => {
   return (
     <div className='flex md:flex-row flex-col-reverse items-center justify-center h-full w-full relative gap-4'>
       {currentStage === Stage.START && (
