@@ -9,42 +9,39 @@ export const useSineWaveAudio = (initialFrequency = 440) => {
   const gainRef = useRef<GainNode | null>(null);
   const frequencyRef = useRef(initialFrequency);
 
-  const play = useCallback(
-    async (duration?: number) => {
-      let context = contextRef.current;
+  const play = useCallback(async (duration?: number) => {
+    let context = contextRef.current;
 
-      if (!context || context.state === 'closed') {
-        context = new AudioContext();
-        contextRef.current = context;
-      }
+    if (!context || context.state === 'closed') {
+      context = new AudioContext();
+      contextRef.current = context;
+    }
 
-      await context.resume();
+    await context.resume();
 
-      // Stop the previous oscillator if one exists.
-      if (oscillatorRef.current) {
-        oscillatorRef.current.stop();
-        oscillatorRef.current.disconnect();
-      }
+    // Stop the previous oscillator if one exists.
+    if (oscillatorRef.current) {
+      oscillatorRef.current.stop();
+      oscillatorRef.current.disconnect();
+    }
 
-      const oscillator = context.createOscillator();
-      const gain = context.createGain();
+    const oscillator = context.createOscillator();
+    const gain = context.createGain();
 
-      oscillator.type = 'sine';
-      oscillator.frequency.value = frequencyRef.current;
-      gain.gain.value = 0.15;
+    oscillator.type = 'sine';
+    oscillator.frequency.value = frequencyRef.current;
+    gain.gain.value = 0.15;
 
-      oscillator.connect(gain);
-      gain.connect(context.destination);
-      oscillator.start();
+    oscillator.connect(gain);
+    gain.connect(context.destination);
+    oscillator.start();
 
-      if (duration) oscillator.stop(context.currentTime + duration / 1000);
+    if (duration) oscillator.stop(context.currentTime + duration / 1000);
 
-      oscillatorRef.current = oscillator;
-      gainRef.current = gain;
-      setIsPlaying(true);
-    },
-    [frequency]
-  );
+    oscillatorRef.current = oscillator;
+    gainRef.current = gain;
+    setIsPlaying(true);
+  }, []);
 
   const stop = useCallback(() => {
     const context = contextRef.current;
