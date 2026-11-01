@@ -29,8 +29,8 @@ export const useSimpleMemoryGame = () => {
     [resetCountdown]
   );
 
-  const handleChosenValueChange = useCallback((hexString: string) => {
-    setGameState((prev) => ({ ...prev, chosenValue: hexString }));
+  const handleChosenValueChange = useCallback((value: string) => {
+    setGameState((prev) => ({ ...prev, chosenValue: value }));
   }, []);
 
   const handleSubmitResult = useCallback((result: number) => {

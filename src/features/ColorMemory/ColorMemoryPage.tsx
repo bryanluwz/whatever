@@ -6,7 +6,7 @@ import { getColorSimilarity, randomHexColor } from '../../utils/color';
 import { ColorRect } from './ColorRect';
 import { ColorPicker } from './ColorPicker';
 import { useSimpleMemoryGame } from '../../hooks/useRecreateMemoryGame';
-import { GameContent } from '../../components/SimpleMemoryGame/SimpleMemoryGame';
+import { SimpleMemoryGame } from '../../components/SimpleMemoryGame/SimpleMemoryGame';
 
 export const ColorMemoryPage = () => {
   const {
@@ -29,7 +29,7 @@ export const ColorMemoryPage = () => {
 
   const content = useMemo(
     () => (
-      <GameContent
+      <SimpleMemoryGame
         currentStage={currentStage}
         result={gameState.result}
         onStart={handleStartGameClick}
@@ -108,8 +108,8 @@ export const ColorMemoryPage = () => {
             title='Colour Memory'
             steps={[
               'Click "Start" and remember the colour on the screen before the timer runs out.',
-              'Try to reconstruct the colour using the sliders',
-              'Stonks',
+              'Try to reconstruct the colour using the sliders.',
+              'Stonks.',
             ]}
           />
         }

@@ -7,10 +7,10 @@ export const ColorPicker = ({ onColorChange }: ColorPickerProps) => {
   const [saturation, setSaturation] = useState(0.35);
   const [brightness, setBrightness] = useState(0.85);
 
-  // const color = hsvToHex(hue, saturation, brightness);
   useEffect(() => {
     onColorChange(hsvToHex(hue, saturation, brightness));
   }, [brightness, hue, onColorChange, saturation]);
+
   const updateColorPosition = (e: React.PointerEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
 
@@ -20,6 +20,7 @@ export const ColorPicker = ({ onColorChange }: ColorPickerProps) => {
     setSaturation(x);
     setBrightness(1 - y);
   };
+
   return (
     <div className='flex gap-2 h-full bg-panel p-3 rounded-xl'>
       <div
@@ -51,8 +52,8 @@ export const ColorPicker = ({ onColorChange }: ColorPickerProps) => {
       {/* Vertical hue slider */}
       <input
         type='range'
-        min='0'
-        max='360'
+        min={0}
+        max={360}
         value={hue}
         onChange={(e) => setHue(Number(e.target.value))}
         className='w-5 cursor-pointer appearance-none rounded-full
