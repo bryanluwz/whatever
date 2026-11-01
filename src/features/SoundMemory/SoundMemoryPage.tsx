@@ -36,23 +36,18 @@ export const SoundMemoryPage = () => {
   }, [gameState.chosenValue, gameState.targetValue, handleSubmitResult]);
 
   const { changeFrequency, play, stop } = useSineWaveAudio();
-  useEffect(() => {
-    if (currentStage === Stage.MEMORISE) {
-      changeFrequency(Number(gameState.targetValue));
-    } else if (currentStage === Stage.RECREATE) {
-      changeFrequency(Number(gameState.chosenValue));
-    }
-  }, [currentStage, gameState.targetValue, gameState.chosenValue, changeFrequency]);
 
   useEffect(() => {
     if (currentStage === Stage.MEMORISE) {
+      changeFrequency(Number(gameState.targetValue));
       play(5000);
     } else if (currentStage === Stage.RECREATE) {
-      play(1000);
+      changeFrequency(Number(gameState.chosenValue));
+      play(1000, true);
     } else {
       stop();
     }
-  }, [currentStage, play, stop]);
+  }, [currentStage, gameState.targetValue, gameState.chosenValue, changeFrequency, play, stop]);
 
   const content = useMemo(
     () => (
